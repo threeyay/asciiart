@@ -13,6 +13,8 @@ greyscale = [
 		"W8KMA",
 		"#%$"
 		]
+path='' #give source path here.
+dest='' #give destinationo paht here.
 colourdepth=[36,72,108,144,180,216,252]
 def make_thumbnail(image):
 	im=Image.open(image)
@@ -35,12 +37,11 @@ def make_ascii(image):
 			str=str+possibles[random.randint(0,len(possibles)-1)]+' '
 		str=str+"\n"
 	return str
-path='/home/abhimanyu/Desktop/3a_data/Pictures/people/'
 for image in os.listdir(path):
 	print image
 	if image.endswith('.jpg'):
-		f=open('/home/abhimanyu/asciiart3/'+image.replace('.jpg',''),'w')
+		f=open(dest+image.replace('.jpg',''),'w')
 	if image.endswith('.JPG'):
-		f=open('/home/abhimanyu/asciiart3/'+image.replace('.JPG',''),'w')
-	asciiart=make_ascii('/home/abhimanyu/Desktop/3a_data/Pictures/people/'+image)
+		f=open(dest+image.replace('.JPG',''),'w')
+	asciiart=make_ascii(path+image)
 	f.write(asciiart)
